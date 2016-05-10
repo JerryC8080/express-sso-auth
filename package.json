@@ -1,0 +1,19 @@
+{
+  "name": "express-sso-auth",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "JerryC",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.7.1",
+    "express": "^4.13.4",
+    "jsonwebtoken": "^6.2.0"
+  },
+  "devDependencies": {
+    "cookie-parser": "^1.4.1"
+  }
+}
