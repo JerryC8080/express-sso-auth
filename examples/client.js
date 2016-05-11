@@ -9,7 +9,9 @@ const app = express();
 const cookieParser = require('cookie-parser');
 const ssoAuth = require('../index');
 const ssoClient = ssoAuth.createClient({
-  client: {name: 'siteA', key: '%^&*'}
+  ssoClient: {
+    client: {name: 'siteA', key: '%^&*'}
+  }
 });
 
 app.use(cookieParser());
@@ -20,7 +22,10 @@ app.get('/', function (req, res) {
 
 app.use(express.static('page'));
 
-app.get('/verify', ssoClient.middleware.verify(), (req, res) => {
+app.get('/verify', ssoClient.middleware.verify(), (err, req, res, next) => {
+  if (err){
+    return res.status(400).send(err.message);
+  }
   res.status(200).send(JSON.stringify(req.sso));
 });
 

@@ -7,11 +7,13 @@
 const app = require('express')();
 const ssoAuth = require('../index');
 const ssoServer = ssoAuth.createServer({
-  clients: [
-    {name: 'siteA', key: '%^&*', host: 'http://localhost:3002'}
-  ],
-  authorizeRoute: '/authorize',
-  serverHost: 'http://localhost:3001'
+  ssoServer: {
+    clients: [
+      {name: 'siteA', key: '%^&*', host: 'http://localhost:3002'}
+    ],
+    authorizeRoute: '/authorize',
+    serverHost: 'http://localhost:3001'
+  }
 });
 
 /**
