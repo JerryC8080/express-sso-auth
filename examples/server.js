@@ -8,12 +8,16 @@ const app = require('express')();
 const ssoAuth = require('../index');
 const ssoServer = ssoAuth.createServer({
   clients: [
-    {name: 'siteA', key: '%^&*', origin: 'http://localhost:3002'}
+    {name: 'siteA', key: '%^&*', host: 'http://localhost:3002'}
   ],
   authorizeRoute: '/authorize',
   serverHost: 'http://localhost:3001'
 });
 
+/**
+ * ssoAuth will be serialize user that from req.user by default.
+ * You custom this by rewrite options.beforeSerializeUser method
+ */
 app.use((req, res, next) => {
   req.user = {username: 'jc'};
   next();
