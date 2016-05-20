@@ -9,7 +9,8 @@ const ssoAuth = require('../index');
 const ssoServer = ssoAuth.createServer({
   ssoServer: {
     clients: [
-      {name: 'siteA', key: '%^&*', host: 'http://localhost:3002'}
+      {name: 'siteA', key: '%^&*', host: 'http://localhost:3002'},
+      {name: 'siteB', key: '%^&*', host: 'http://localhost:3003'}
     ],
     authorizeRoute: '/authorize',
     serverHost: 'http://localhost:3001'
