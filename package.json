@@ -12,7 +12,8 @@
     "cors": "^2.7.1",
     "express": "^4.13.4",
     "jsonwebtoken": "^6.2.0",
-    "lodash": "^4.12.0"
+    "lodash": "^4.12.0",
+    "ms": "^0.7.1"
   },
   "devDependencies": {
     "cookie-parser": "^1.4.1"

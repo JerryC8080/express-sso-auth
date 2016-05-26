@@ -28,6 +28,13 @@ app.use((req, res, next) => {
 
 app.use(ssoServer.middleware.authorize());
 
+app.get('/afterLogin', (req, res, next) => {
+  let ssoToken = ssoServer.api.generateToken(req.user, req.query.client);
+  ssoServer.api.setTokenInCookie(res, ssoToken);
+  res.send('ok');
+  return next();
+});
+
 app.get('/sso.js', ssoServer.middleware.script());
 
 app.listen(3001, function () {
