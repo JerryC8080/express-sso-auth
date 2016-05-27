@@ -14,6 +14,11 @@ const ssoServer = ssoAuth.createServer({
     ],
     authorizeRoute: '/authorize',
     serverHost: 'http://localhost:3001'
+  },
+  token: {
+    cookie: {
+      domain: '.uo.com'
+    }
   }
 });
 
@@ -30,12 +35,16 @@ app.use(ssoServer.middleware.authorize());
 
 app.get('/afterLogin', (req, res, next) => {
   let ssoToken = ssoServer.api.generateToken(req.user, req.query.client);
-  ssoServer.api.setTokenInCookie(res, ssoToken);
-  res.send('ok');
-  return next();
+  ssoServer.api.setTokenIntoCookie(res, ssoToken);
+  return res.send('ok');
 });
 
 app.get('/sso.js', ssoServer.middleware.script());
+
+app.get('/setUser', (req, res, next) => {
+  ssoServer.api.setUserIntoCookie(req, res, 'siteA');
+  return res.sendStatus(200);
+});
 
 app.listen(3001, function () {
   console.log('Example app listening on port 3001!');
