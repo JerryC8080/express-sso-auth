@@ -5,8 +5,8 @@
  */
 
 'use strict';
-const server = require('./lib/server');
-const client = require('./lib/client');
+const server = require('./lib/server/index.js');
+const client = require('./lib/client/index.js');
 
 module.exports = {
   /**
