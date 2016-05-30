@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/**/*.test.js",
+    "cover": "istanbul cover _mocha -- test/**/*.test.js"
   },
   "author": "JerryC",
   "license": "MIT",
@@ -18,6 +19,7 @@
   },
   "devDependencies": {
     "cookie-parser": "^1.4.1",
+    "istanbul": "^0.4.3",
     "mocha": "^2.5.3",
     "node-mocks-http": "^1.5.2",
     "should": "^8.4.0"

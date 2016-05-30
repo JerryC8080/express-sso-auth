@@ -4,7 +4,7 @@
  * @description
  */
 'use strict';
-const logger = require('../lib/logger');
+const logger = require('../lib/logger')();
 
 describe("logger", () => {
   logger.info('logger info');

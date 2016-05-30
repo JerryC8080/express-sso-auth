@@ -10,5 +10,4 @@ const Client = require('../lib/client/index');
 
 describe("client", () => {
   const client = Client({});
-  console.log(client.opts);
 });
