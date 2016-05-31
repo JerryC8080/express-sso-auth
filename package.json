@@ -21,6 +21,7 @@
     "cookie-parser": "^1.4.1",
     "istanbul": "^0.4.3",
     "mocha": "^2.5.3",
+    "muk": "^0.4.0",
     "node-mocks-http": "^1.5.2",
     "should": "^8.4.0"
   }
